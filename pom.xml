@@ -12,7 +12,7 @@
 	<artifactId>common-geo-model</artifactId>
 	<packaging>jar</packaging>
 	<name>Common geo model</name>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<description>Shared geo objects</description>
 	<build>
 		<plugins>
