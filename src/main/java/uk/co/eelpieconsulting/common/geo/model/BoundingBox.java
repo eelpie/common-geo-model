@@ -1,5 +1,7 @@
 package uk.co.eelpieconsulting.common.geo.model;
 
+import java.util.Objects;
+
 public class BoundingBox {
 	
 	private final LatLong topLeft, bottomRight;
@@ -35,5 +37,17 @@ public class BoundingBox {
 	public String toString() {
 		return "BoundingBox [bottomRight=" + bottomRight + ", topLeft=" + topLeft + "]";
 	}
-	
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		BoundingBox that = (BoundingBox) o;
+		return Objects.equals(topLeft, that.topLeft) && Objects.equals(bottomRight, that.bottomRight);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(topLeft, bottomRight);
+	}
 }

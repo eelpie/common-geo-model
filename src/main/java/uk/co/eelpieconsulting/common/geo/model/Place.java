@@ -1,6 +1,7 @@
 package uk.co.eelpieconsulting.common.geo.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Place implements Serializable {
     
@@ -46,5 +47,17 @@ public class Place implements Serializable {
 	public String toString() {
 		return "Place [address=" + address + ", latLong=" + latLong + ", osmId=" + osmId + "]";
 	}
-	
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Place place = (Place) o;
+		return Objects.equals(address, place.address) && Objects.equals(latLong, place.latLong) && Objects.equals(osmId, place.osmId);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(address, latLong, osmId);
+	}
 }

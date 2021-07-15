@@ -1,6 +1,7 @@
 package uk.co.eelpieconsulting.common.geo.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class OsmId implements Serializable {
 	
@@ -37,5 +38,17 @@ public class OsmId implements Serializable {
 	public String toString() {
 		return "OsmId [id=" + id + ", type=" + type + "]";
 	}
-	
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		OsmId osmId = (OsmId) o;
+		return id == osmId.id && type == osmId.type;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, type);
+	}
 }
